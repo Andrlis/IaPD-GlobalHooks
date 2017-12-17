@@ -80,7 +80,6 @@ namespace GlobalHooks
             return false;
         }
 
-
         private bool FileIsAvailable(string fileName)
         {
             if (File.Exists(fileName))
@@ -100,7 +99,7 @@ namespace GlobalHooks
 
             foreach (var s in files)
             {
-                number.Add(int.Parse(s.Remove(0, (folderPath + "\\KeyBaordLog").Length)));
+                number.Add(int.Parse(s.Remove(0, (folderPath + "\\KeyBoardLog").Length)));
             }
 
             return number.Count > 0 ? number.Max() : 0;

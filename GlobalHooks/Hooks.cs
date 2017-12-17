@@ -16,12 +16,10 @@ namespace GlobalHooks
 
         public delegate void AddFromFile(string line);
         public delegate void ChangeVisable();
-        public delegate void FabeMonitor();
 
         public event AddFromFile MauseHook;
         public event AddFromFile KeyBordHook;
         public event ChangeVisable Visable;
-        public event FabeMonitor FabeMonitorEvent;
 
         const int SHERB_NOSOUND = 0x00000004;
 
@@ -89,7 +87,14 @@ namespace GlobalHooks
                     LeftCtrlPressed = true;
                     break;
 
-                case "D":
+                case "F1":
+                    if (LeftCtrlPressed)
+                    {
+                        Visable?.Invoke();
+                    }
+                    break;
+
+                case "F2":
                     if (LeftCtrlPressed)
                     {
                         SHEmptyRecycleBin(IntPtr.Zero, "", SHERB_NOSOUND);

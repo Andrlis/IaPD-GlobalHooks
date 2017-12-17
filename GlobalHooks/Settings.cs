@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace GlobalHooks
@@ -36,7 +35,7 @@ namespace GlobalHooks
 
             try
             {
-                settings = File.ReadAllLines(@"C:\IPD\settings");                               //Переписать в относительный адрес
+                settings = File.ReadAllLines(@"C:\Andrey\VS2017\GlobalHooks\files\settings");                               
             }
             catch (Exception)
             {
@@ -62,8 +61,8 @@ namespace GlobalHooks
         {
             if (CheckMail())
             {
-                File.Delete(@"C:\IPD\settings");                                                //Переписать в относительный адрес
-                File.AppendAllLines(@"C:\IPD\settings", new List<string>() 
+                File.Delete(@"C:\Andrey\VS2017\GlobalHooks\files\settings");                                                
+                File.AppendAllLines(@"C:\Andrey\VS2017\GlobalHooks\files\settings", new List<string>() 
                     { Coder.Code(eMail), 
                       Coder.Code(maxLogFileSize.ToString()), 
                       Coder.Code(autoStart ? "true" : "false") });
